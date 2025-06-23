@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import './Navbar.css'
 import { FiMenu, FiX } from "react-icons/fi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
@@ -7,7 +8,6 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Detect scroll and change navbar background
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -17,15 +17,11 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Smooth scroll function
   const handleMenuItemClick = (sectionId) => {
     setActiveSection(sectionId);
     setIsOpen(false);
-
     const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
+    if (section) section.scrollIntoView({ behavior: "smooth" });
   };
 
   const menuItems = [
@@ -37,104 +33,90 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition duration-300 px-[7vw] md:px-[7vw] lg:px-[20vw] ${
-        isScrolled ? "bg-[#050414] bg-opacity-50 backdrop-blur-md shadow-md" : "bg-transparent"
+      className={`navbar-wrapper ${
+        isScrolled ? "navbar-scrolled" : "navbar-default"
       }`}
     >
-      <div className="text-white py-5 flex justify-between items-center">
+      <div className="navbar-container">
         {/* Logo */}
-        <div className="text-lg font-semibold cursor-pointer">
-          <span className="text-[#8245ec]">&lt;</span>
-          <span className="text-white">Mannat</span>
-          <span className="text-[#8245ec]">/</span>
-          <span className="text-white">Garg</span>
-          <span className="text-[#8245ec]">&gt;</span>
+        <div className="logo">
+          <span className="name red">M</span>
+          <span className="name purple">G</span>
         </div>
 
+
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 text-gray-300">
+        <ul className="menu-items">
           {menuItems.map((item) => (
             <li
               key={item.id}
-              className={`cursor-pointer hover:text-[#8245ec] ${
-                activeSection === item.id ? "text-[#8245ec]" : ""
+              className={`menu-link ${
+                activeSection === item.id ? "menu-active" : ""
               }`}
+              onClick={() => handleMenuItemClick(item.id)}
             >
-              <button onClick={() => handleMenuItemClick(item.id)}>
-                {item.label}
-              </button>
+              {item.label}
             </li>
           ))}
         </ul>
 
         {/* Social Icons */}
-        <div className="hidden md:flex space-x-4">
+        <div className="social-icons">
           <a
             href="https://github.com/mannat-07"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec]"
           >
-            <FaGithub size={24} />
+            <FaGithub size={22} />
           </a>
           <a
             href="https://www.linkedin.com/in/mannat-garg-20258a324"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec]"
           >
-            <FaLinkedin size={24} />
+            <FaLinkedin size={22} />
           </a>
         </div>
 
-        {/* Mobile Menu Icon */}
-        <div className="md:hidden">
+        {/* Mobile Toggle */}
+        <div className="menu-toggle md:hidden">
           {isOpen ? (
-            <FiX
-              className="text-3xl text-[#8245ec] cursor-pointer"
-              onClick={() => setIsOpen(false)}
-            />
+            <FiX onClick={() => setIsOpen(false)} />
           ) : (
-            <FiMenu
-              className="text-3xl text-[#8245ec] cursor-pointer"
-              onClick={() => setIsOpen(true)}
-            />
+            <FiMenu onClick={() => setIsOpen(true)} />
           )}
         </div>
       </div>
 
-      {/* Mobile Menu Items */}
+      {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-4/5 bg-[#050414] bg-opacity-50 backdrop-filter backdrop-blur-lg z-50 rounded-lg shadow-lg md:hidden">
-          <ul className="flex flex-col items-center space-y-4 py-4 text-gray-300">
+        <div className="mobile-menu">
+          <ul className="mobile-menu-list">
             {menuItems.map((item) => (
               <li
                 key={item.id}
-                className={`cursor-pointer hover:text-white ${
-                  activeSection === item.id ? "text-[#8245ec]" : ""
+                className={`mobile-link ${
+                  activeSection === item.id ? "menu-active" : ""
                 }`}
+                onClick={() => handleMenuItemClick(item.id)}
               >
-                <button onClick={() => handleMenuItemClick(item.id)}>
-                  {item.label}
-                </button>
+                {item.label}
               </li>
             ))}
-            <div className="flex space-x-4">
+            <div className="mobile-socials">
               <a
                 href="https://github.com/mannat-07"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white"
               >
-                <FaGithub size={24} />
+                <FaGithub size={22} />
               </a>
               <a
                 href="https://www.linkedin.com/in/mannat-garg-20258a324"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white"
               >
-                <FaLinkedin size={24} />
+                <FaLinkedin size={22} />
               </a>
             </div>
           </ul>

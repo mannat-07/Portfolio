@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import './Contact.css'
 
 const Contact = () => {
   const form = useRef();
@@ -12,20 +12,20 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_z6rrvjf",  // Replace with your EmailJS Service ID
-        "template_x0f1nkl",  // Replace with your EmailJS Template ID
+        "service_z6rrvjf",      
+        "template_x0f1nkl",   
         form.current,
-        "_oCnnYBECSpYwfa2N"  // Replace with your EmailJS Public Key
+        "_oCnnYBECSpYwfa2N"  
       )
       .then(
         () => {
           setIsSent(true);
-          form.current.reset(); // Reset form fields after sending
+          form.current.reset();
           toast.success("Message sent successfully! ✅", {
             position: "top-right",
             autoClose: 3000,
             hideProgressBar: false,
-            closeOnClick: true, 
+            closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             theme: "dark",
@@ -47,63 +47,62 @@ const Contact = () => {
   };
 
   return (
-    <section
-      id="contact"
-      className="flex flex-col items-center justify-center py-24 px-[12vw] md:px-[7vw] lg:px-[20vw]"
-    >
-      {/* Toast Container */}
+    <section id="contact" className="contact-section">
       <ToastContainer />
 
+      {/* Bubble Background */}
+      <div className="bubble-bg-contact">
+        <div className="bubble bubble-1"></div>
+        <div className="bubble bubble-2"></div>
+        <div className="bubble bubble-3"></div>
+        <div className="bubble bubble-4"></div>
+        <div className="bubble bubble-5"></div>
+      </div>
+
       {/* Section Title */}
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-white">CONTACT</h2>
-        <div className="w-32 h-1 bg-purple-500 mx-auto mt-4"></div>
-        <p className="text-gray-400 mt-4 text-lg font-semibold">
+      <div className="contact-header">
+        <h2 className="contact-heading">CONTACT</h2>
+        <div className="contact-underline"></div>
+        <p className="contact-subtext">
           I’d love to hear from you—reach out for any opportunities or questions!
         </p>
       </div>
 
       {/* Contact Form */}
-      <div className="mt-8 w-full max-w-md bg-[#0d081f] p-6 rounded-lg shadow-lg border border-gray-700">
-        <h3 className="text-xl font-semibold text-white text-center">
-          Connect With Me <span className="ml-1">🚀</span>
-        </h3>
+      <div className="contact-card">
+        <h3 className="contact-title">Connect With Me 🚀</h3>
 
-        <form ref={form} onSubmit={sendEmail} className="mt-4 flex flex-col space-y-4">
+        <form ref={form} onSubmit={sendEmail} className="contact-form">
           <input
             type="email"
             name="user_email"
             placeholder="Your Email"
             required
-            className="w-full p-3 rounded-md bg-[#131025] text-white border border-gray-600 focus:outline-none focus:border-purple-500"
+            className="contact-input"
           />
           <input
             type="text"
             name="user_name"
             placeholder="Your Name"
             required
-            className="w-full p-3 rounded-md bg-[#131025] text-white border border-gray-600 focus:outline-none focus:border-purple-500"
+            className="contact-input"
           />
           <input
             type="text"
             name="subject"
             placeholder="Subject"
             required
-            className="w-full p-3 rounded-md bg-[#131025] text-white border border-gray-600 focus:outline-none focus:border-purple-500"
+            className="contact-input"
           />
           <textarea
             name="message"
             placeholder="Message"
             rows="4"
             required
-            className="w-full p-3 rounded-md bg-[#131025] text-white border border-gray-600 focus:outline-none focus:border-purple-500"
+            className="contact-textarea"
           />
-          
-          {/* Send Button */}
-          <button
-            type="submit"
-            className="w-full bg-gradient-to-r from-purple-600 to-pink-500 py-3 text-white font-semibold rounded-md hover:opacity-90 transition"
-          >
+
+          <button type="submit" className="contact-button">
             Send
           </button>
         </form>

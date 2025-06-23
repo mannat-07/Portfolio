@@ -1,0 +1,76 @@
+.navbar-wrapper {
+  @apply fixed top-0 w-full z-50 bg-[#0f172a] shadow-lg;
+  animation: slideDown 0.6s ease-in-out;
+}
+
+@keyframes slideDown {
+  0% { transform: translateY(-100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.navbar-container {
+  @apply px-[6vw] py-4 flex justify-between items-center;
+}
+
+.logo {
+  @apply flex items-center text-2xl font-bold tracking-wider text-white cursor-pointer;
+  font-family: 'Poppins', sans-serif;
+}
+
+.name.red {
+  @apply text-blue-500;
+}
+
+.name.white {
+  @apply text-white;
+}
+
+.menu-items {
+  @apply hidden md:flex ml-auto space-x-10 text-gray-200 font-medium;
+}
+
+.menu-link {
+  @apply cursor-pointer hover:text-blue-400 transition;
+}
+
+.menu-active {
+  @apply text-blue-500;
+}
+
+.social-icons {
+  @apply hidden md:flex space-x-6 ml-24 text-gray-300;
+}
+
+.social-icons a:hover {
+  @apply text-blue-500 transition;
+}
+
+.menu-toggle svg {
+  @apply text-3xl text-blue-500 cursor-pointer;
+}
+
+.mobile-menu {
+  @apply absolute top-[4.5rem] left-1/2 transform -translate-x-1/2 w-4/5 rounded-lg bg-[#1e293b] bg-opacity-95 backdrop-blur-lg shadow-lg;
+  animation: scaleIn 0.4s ease;
+}
+
+@keyframes scaleIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.mobile-menu-list {
+  @apply flex flex-col items-center py-4 space-y-4 text-gray-300 font-medium;
+}
+
+.mobile-link {
+  @apply cursor-pointer hover:text-white transition;
+}
+
+.mobile-socials {
+  @apply flex space-x-4 pt-2;
+}
+
+.mobile-socials a:hover {
+  @apply text-blue-500 transition;
+}
