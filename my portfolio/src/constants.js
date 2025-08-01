@@ -25,11 +25,10 @@ import lpsLogo from './assets/education_logo/lps_logo.png';
 import cuLogo from './assets/education_logo/cu_logo.png';
 
 // Project Section Logo's
-// import githubdetLogo from './assets/work_logo/github_det.png';
-// import csprepLogo from './assets/work_logo/cs_prep.png';
-// import movierecLogo from './assets/work_logo/movie_rec.png';
+import githubProfile from './assets/work_logo/GitHub-profile-search.png';
+import imgGenerator from './assets/work_logo/Img-generator.png';
+import peopleCounter from './assets/work_logo/People counter.png';
 // import taskremLogo from './assets/work_logo/task_rem.png';
-// import npmLogo from './assets/work_logo/npm.png';
 
 
 export const SkillsInfo = [
@@ -105,26 +104,36 @@ export const SkillsInfo = [
   export const projects = [
     {
       id: 0,
+      title: "AI Image Generator",
+      description:
+        "An AI-powered image generator web application that allows users to create unique images from text prompts using advanced AI models.",
+      image: imgGenerator,
+      tags: ["React JS", "Node.js", "Express.js", "MongoDB"],
+      github: "https://github.com/mannat-07/AI-image-generator.git",
+      webapp: "",
+    },
+    {
+      id: 1,
       title: "GitHub Profile Search",
       description:
         "Unleash your inner code ninja with this sleek, GitHub profile tracker! Search any GitHub username to reveal their full profile dossier — from public repos to followers and more. If your target vanishes in the shadows, we’ll fetch lookalike suspects so you never lose the trail.",
-      // image: githubdetLogo,
+      image: githubProfile,
       tags: ["HTML", "CSS", "JavaScript", "React JS", "API"],
       github: "https://github.com/mannat-07/GitHub-profile-search.git",
       webapp: "https://mannat-github-profile-search.netlify.app/",
     },
     {
-      id: 1,
+      id: 2,
       title: "People Counter",
       description:
-        "Track how many people enter and exit an area using just a camera and a few lines of Python. This project uses OpenCV's HOG detector + virtual lines to count people in real-time.",
-      // image: csprepLogo,
+        "Track how many people enter and exit an area using just a camera and a few lines of Python. This project uses OpenCV's HOG detector + virtual lines to count people in video.",
+      image: peopleCounter,
       tags: ["Python", "OpenCV", "Imutils"],
       github: "https://github.com/mannat-07/People-counter.git",
       webapp: "",
     },
     {
-      id: 2,
+      id: 3,
       title: "Cloak of Invisibility",
       description:
         "This project creates a magical invisibility cloak effect using Python and OpenCV — inspired by Harry Potter! When you wear a cloak of a specific color (like yellow), the program detects that color and replaces it with the background, making you appear invisible on screen.",
@@ -133,14 +142,5 @@ export const SkillsInfo = [
       github: "https://github.com/mannat-07/Cloak-of-invisibility---Harry-Potter.git",
       webapp: "",
     },
-    {
-      id: 3,
-      title: "AI Image Generator",
-      description:
-        "",
-      // image: npmLogo,
-      tags: ["React JS", "Node.js", "Express.js", "MongoDB"],
-      github: "https://github.com/mannat-07/AI-image-generator.git",
-      webapp: "",
-    },
+
   ];  
