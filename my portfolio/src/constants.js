@@ -28,7 +28,7 @@ import cuLogo from './assets/education_logo/cu_logo.png';
 import githubProfile from './assets/work_logo/GitHub-profile-search.png';
 import imgGenerator from './assets/work_logo/Img-generator.png';
 import peopleCounter from './assets/work_logo/People counter.png';
-// import taskremLogo from './assets/work_logo/task_rem.png';
+import invisibilityCloak from './assets/work_logo/Invisibility-Cloak.png';
 
 
 export const SkillsInfo = [
@@ -137,7 +137,7 @@ export const SkillsInfo = [
       title: "Cloak of Invisibility",
       description:
         "This project creates a magical invisibility cloak effect using Python and OpenCV — inspired by Harry Potter! When you wear a cloak of a specific color (like yellow), the program detects that color and replaces it with the background, making you appear invisible on screen.",
-      // image: movierecLogo,
+      image: invisibilityCloak,
       tags: ["Python", "OpenCV", "NumPy"],
       github: "https://github.com/mannat-07/Cloak-of-invisibility---Harry-Potter.git",
       webapp: "",
