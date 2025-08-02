@@ -34,7 +34,7 @@ const About = () => {
             I’m a full-stack developer and CS student, skilled in both front-end and back-end. I work mainly with the MERN stack to craft smooth, responsive, and scalable digital experiences.
           </p>
           <a
-            href="#"
+            href="/Mannat_Resume.pdf" download="Mannat_Resume"
             target="_blank"
             rel="noopener noreferrer"
             className="about-btn"
