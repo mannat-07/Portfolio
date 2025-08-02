@@ -110,7 +110,7 @@ export const SkillsInfo = [
       image: imgGenerator,
       tags: ["React JS", "Node.js", "Express.js", "MongoDB"],
       github: "https://github.com/mannat-07/AI-image-generator.git",
-      webapp: "",
+      webapp: "https://mannat-ai-image.netlify.app",
     },
     {
       id: 1,
